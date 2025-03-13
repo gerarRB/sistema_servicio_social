@@ -23,7 +23,6 @@ return new class extends Migration
             
             $table->date('fecha_inicio');
             $table->date('fecha_fin'); 
-            $table->integer('horas_requeridas')->default(500); 
 
             
 
