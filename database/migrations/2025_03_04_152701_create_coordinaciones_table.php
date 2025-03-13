@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('nombre_coordinacion', 100);
             $table->timestamps();
 
-            $table->foreignId('user_id',)
-                  ->constrained('users')
-                  ->onDelete('cascade');   
+            
         });
     }
 

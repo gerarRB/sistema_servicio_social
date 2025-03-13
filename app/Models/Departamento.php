@@ -9,10 +9,10 @@ class Departamento extends Model
 {
     use HasFactory;
 
-    protected $table = 'departamentos'; // Especifica el nombre de la tabla
+    protected $table = 'departamentos'; 
 
     protected $fillable = [
-        'nombre_departamento', // Nombre del departamento
+        'nombre_departamento', 
     ];
 
     // Relación con municipios (un departamento tiene muchos municipios)

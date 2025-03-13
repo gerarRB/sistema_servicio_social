@@ -7,6 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Municipio extends Model
 {
-    /** @use HasFactory<\Database\Factories\MunicipioFactory> */
     use HasFactory;
+
+    protected $table = 'municipios';
+    
+    protected $fillable = ['nombre_municipio', 'departamento_id'];
+
+    
+    //Relación con Departamento (Muchos municipios pertenecen a un departamento)
+     
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class, 'departamento_id');
+    }
 }

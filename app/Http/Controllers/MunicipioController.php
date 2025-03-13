@@ -7,59 +7,68 @@ use Illuminate\Http\Request;
 
 class MunicipioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
+    //Muestra la lista de municipios.
+     
     public function index()
     {
-        //
+        $municipios = Municipio::with('departamento')->get();
+        return response()->json($municipios);
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Guarda un nuevo municipio.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre_municipio' => 'required|string|max:50',
+            'departamento_id' => 'required|exists:departamentos,id',
+        ]);
+
+        $municipio = Municipio::create($request->all());
+
+        return response()->json([
+            'message' => 'Municipio creado con éxito',
+            'municipio' => $municipio
+        ], 201);
     }
 
     /**
-     * Display the specified resource.
+     * Muestra un municipio específico.
      */
     public function show(Municipio $municipio)
     {
-        //
+        return response()->json($municipio->load('departamento'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Municipio $municipio)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Actualiza un municipio.
      */
     public function update(Request $request, Municipio $municipio)
     {
-        //
+        $request->validate([
+            'nombre_municipio' => 'sometimes|required|string|max:50',
+            'departamento_id' => 'sometimes|required|exists:departamentos,id',
+        ]);
+
+        $municipio->update($request->all());
+
+        return response()->json([
+            'message' => 'Municipio actualizado con éxito',
+            'municipio' => $municipio
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un municipio.
      */
     public function destroy(Municipio $municipio)
     {
-        //
+        $municipio->delete();
+
+        return response()->json([
+            'message' => 'Municipio eliminado correctamente'
+        ]);
     }
 }
