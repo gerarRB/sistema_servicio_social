@@ -20,17 +20,17 @@ class Coordinador extends Model
         'user_id',
     ];
 
-    /**
-     * Relación con la Coordinación (Un Coordinador pertenece a una Coordinación)
-     */
+    
+    //Relación con la Coordinación (Un Coordinador pertenece a una Coordinación)
+    
     public function coordinacion()
     {
         return $this->belongsTo(Coordinacion::class, 'coordinacion_id');
     }
 
-    /**
-     * Relación con el Usuario (Un Coordinador está asociado a un Usuario)
-     */
+    
+    //Relación con el Usuario (Un Coordinador está asociado a un Usuario)
+    
     public function usuario()
     {
         return $this->belongsTo(User::class, 'user_id');

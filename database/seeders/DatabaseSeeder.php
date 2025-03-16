@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RolSeeder::class,
             UserSeeder::class,
+            DepartamentoSeeder::class,
+            DistritoSeeder::class,
+            MunicipioSeeder::class,
          
         ]);
     }
