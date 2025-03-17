@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('coordinaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_coordinacion', 100);
+            $table->string('nombre_coordinacion', 500);
             $table->timestamps();
 
             

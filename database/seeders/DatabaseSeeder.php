@@ -24,9 +24,10 @@ class DatabaseSeeder extends Seeder
             RolSeeder::class,
             UserSeeder::class,
             DepartamentoSeeder::class,
-            DistritoSeeder::class,
             MunicipioSeeder::class,
-         
+            DistritoSeeder::class,
+            CoordinacionSeeder::class,
+            CarreraSeeder::class,
         ]);
     }
 }
